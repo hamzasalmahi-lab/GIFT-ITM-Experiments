@@ -139,7 +139,7 @@ python3 analyze_warped_ricci.py
 Generate Figure 1 (the \((\Phi_{voi}, H)\) curvature landscape):
 
 ```bash
-python3 plot_curvature_landscape.py
+python3 scripts/figures/plot_curvature_landscape.py
 ```
 
 The script writes:
@@ -151,7 +151,7 @@ artifacts/figure1_curvature_landscape.png
 Generate Figure 2 (the modified tuning curve):
 
 ```bash
-python3 plot_modified_tuning_curve.py
+python3 scripts/figures/plot_modified_tuning_curve.py
 ```
 
 The script writes:
@@ -163,7 +163,7 @@ artifacts/figure2_modified_tuning_curve.png
 Generate Figure 3 (the HST metastability landscape):
 
 ```bash
-python3 plot_hst_metastability_landscape.py
+python3 scripts/figures/plot_hst_metastability_landscape.py
 ```
 
 The script writes:
@@ -175,7 +175,7 @@ artifacts/figure3_hst_metastability_landscape.png
 Generate Figure 4 (the HST architecture):
 
 ```bash
-python3 plot_hst_architecture.py
+python3 scripts/figures/plot_hst_architecture.py
 ```
 
 The script writes:
@@ -187,7 +187,7 @@ artifacts/figure4_hst_architecture.png
 Generate Figure 5 (the \(\alpha(\Phi)\) domain map):
 
 ```bash
-python3 plot_alpha_domain_map.py
+python3 scripts/figures/plot_alpha_domain_map.py
 ```
 
 The script writes:
