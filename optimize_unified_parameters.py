@@ -1,9 +1,11 @@
 import numpy as np
 from scipy.optimize import differential_evolution
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 
 PHI_0 = 2.0 / 3.0
+ARTIFACTS_DIR = Path("artifacts")
 
 
 def Phi_th_IFE(L_bio, kappa, Lambda, Phi_0=PHI_0):
@@ -52,6 +54,9 @@ def optimize_unified_parameters():
 
 
 def plot_incoherence_gap(kappa, Lambda, Phi_target):
+    ARTIFACTS_DIR.mkdir(exist_ok=True)
+    output_path = ARTIFACTS_DIR / "incoherence_gap.png"
+
     L_values = np.linspace(0.0, 2.0, 120)
     phi_ode = Phi_th_ODE(Phi_target)
     phi_ife_values = Phi_th_IFE(L_values, kappa, Lambda)
@@ -64,8 +69,8 @@ def plot_incoherence_gap(kappa, Lambda, Phi_target):
     plt.ylabel("Incoherence Gap")
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig("incoherence_gap.png", dpi=150)
-    print("Saved plot: incoherence_gap.png")
+    plt.savefig(output_path, dpi=150)
+    print(f"Saved plot: {output_path}")
 
     if "agg" not in plt.get_backend().lower():
         plt.show()

@@ -1,13 +1,42 @@
 # GIFT-ITM-Experiments
 GIFT Math Experimentations 
 
-## Threshold Audit Script
+## Repository Organization
+
+- Conceptual audit and reviewer-response structure: `docs/REVISION_STRATEGY.md`
+- Symbolic audits and derivations:
+	- `audit_threshold.py`
+	- `derive_mrai_variation.py`
+	- `derive_slow_manifold.py`
+	- `gauge_commutation_test.py`
+	- `hierarchical_metric_induction.py`
+- Numerical experiments and simulation:
+	- `simulate_dpdr.py`
+	- `optimize_unified_parameters.py`
+	- `simulate_transduction_probability.py`
+- Geometric curvature analysis:
+	- `calc_ricci.py`
+	- `analyze_warped_ricci.py`
+- Tests: `tests/`
+- Generated figures: `artifacts/`
+
+## Setup
 
 Install dependencies:
 
 ```bash
 python3 -m pip install -r requirements.txt
 ```
+
+Run all tests:
+
+```bash
+python3 -m unittest discover -s tests
+```
+
+## Mandatory Mathematical Corrections
+
+### 1) Algebraic Sign Correction (Major Concern 4)
 
 Run the symbolic derivation:
 
@@ -21,87 +50,37 @@ Expected result:
 The mathematically [PROVED] threshold is: Phi_th = L_bio*kappa/(2*lambda) + Phi_0
 ```
 
-Run the basic test:
+### 2) Threshold Disambiguation (Major Concern 3)
 
-```bash
-python3 -m unittest discover -s tests
-```
-
-## DPDR Simulation Script
-
-Run the ODE simulation:
-
-```bash
-python3 simulate_dpdr.py
-```
-
-If you are running in a headless environment, use a non-interactive Matplotlib backend:
-
-```bash
-MPLBACKEND=Agg python3 simulate_dpdr.py
-```
-
-## Ricci Scalar Script
-
-Run the symbolic Ricci scalar calculation:
-
-```bash
-python3 calc_ricci.py
-```
-
-## Warped Ricci Analysis
-
-Run the full 5D warped-metric analysis:
-
-```bash
-python3 analyze_warped_ricci.py
-```
-
-## Unified Parameter Optimization
-
-Run the global optimization for a unified GIFT-ITM parameter set:
+Run the global consistency optimization:
 
 ```bash
 python3 optimize_unified_parameters.py
 ```
 
-If no coherent solution is found, the script saves:
+If no coherent unified solution exists, the script writes:
 
 ```text
-incoherence_gap.png
+artifacts/incoherence_gap.png
 ```
 
-## Variational MRA-I Derivation
+## Master Research Agenda (MRA)
 
-Run the symbolic variational derivation linking IFEs to a dynamical \\dot{Phi} closure:
+### MRA-I: IFE–ODE Integration Bridge
+
+Run the action-level variational bridge derivation:
 
 ```bash
 python3 derive_mrai_variation.py
 ```
 
-## Stochastic Transduction Simulation
-
-Run the Monte Carlo transducer simulation and sigmoid fit:
+Run the explicit slow-manifold reduction:
 
 ```bash
-python3 simulate_transduction_probability.py
+python3 derive_slow_manifold.py
 ```
 
-The script saves:
-
-```text
-transduction_probability_fit.png
-```
-
-## Hierarchical Metric Induction
-
-Run hierarchical curvature induction and additivity check:
-
-```bash
-python3 hierarchical_metric_induction.py
-```
-
-## Gauge Commutation Test
+### MRA-III: Commutation Problem
 
 Run the symbolic gauge commutator test for the GIFT action:
 
@@ -109,11 +88,58 @@ Run the symbolic gauge commutator test for the GIFT action:
 python3 gauge_commutation_test.py
 ```
 
-## Changelog (2026-03-14)
+### MRA-IV: Transduction Map Derivation
 
-- Added `audit_threshold.py` for symbolic threshold derivation from the equilibrium condition.
-- Added `simulate_dpdr.py` for ODE simulation of DPDR threshold dynamics.
-- Added `calc_ricci.py` for symbolic 5D Ricci scalar computation with EinsteinPy.
-- Added `analyze_warped_ricci.py` for non-diagonal warped 5D metric analysis, first-order reduction constraints, and warp-error term output.
-- Added tests: `test_audit_threshold.py`, `test_calc_ricci.py`, and `test_analyze_warped_ricci.py`.
-- Expanded `requirements.txt` with scientific/symbolic dependencies needed by all scripts.
+Run the Monte Carlo transducer simulation and sigmoid fit:
+
+```bash
+python3 simulate_transduction_probability.py
+```
+
+The script writes:
+
+```text
+artifacts/transduction_probability_fit.png
+```
+
+### MRA-VI: Hierarchical Scaling & Theorem 2
+
+Run hierarchical curvature induction and additivity check:
+
+```bash
+python3 hierarchical_metric_induction.py
+```
+
+## Supporting Geometry/Numerics
+
+Run the ODE simulation:
+
+```bash
+python3 simulate_dpdr.py
+```
+
+If you are running in a headless environment:
+
+```bash
+MPLBACKEND=Agg python3 simulate_dpdr.py
+```
+
+Run the symbolic Ricci scalar calculation:
+
+```bash
+python3 calc_ricci.py
+```
+
+Run the warped-metric Ricci analysis:
+
+```bash
+python3 analyze_warped_ricci.py
+```
+
+## Verification
+
+Core regression suite:
+
+```bash
+python3 -m unittest discover -s tests
+```

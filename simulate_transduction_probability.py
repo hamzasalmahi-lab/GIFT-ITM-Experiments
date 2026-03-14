@@ -3,6 +3,10 @@ from scipy import stats
 from scipy.optimize import curve_fit
 import sympy as sp
 import matplotlib.pyplot as plt
+from pathlib import Path
+
+
+ARTIFACTS_DIR = Path("artifacts")
 
 
 def sigmoid(phi, gain, phi_c):
@@ -63,6 +67,9 @@ def fit_sigmoid(phi_values, probabilities):
 
 
 def plot_results(phi_values, probabilities, fitted_curve, r_squared):
+    ARTIFACTS_DIR.mkdir(exist_ok=True)
+    output_path = ARTIFACTS_DIR / "transduction_probability_fit.png"
+
     plt.figure(figsize=(8, 5))
     plt.scatter(phi_values, probabilities, s=12, alpha=0.6, label="Monte Carlo")
     plt.plot(phi_values, fitted_curve, color="crimson", linewidth=2, label="Sigmoid fit")
@@ -72,8 +79,8 @@ def plot_results(phi_values, probabilities, fitted_curve, r_squared):
     plt.grid(alpha=0.3)
     plt.legend()
     plt.tight_layout()
-    plt.savefig("transduction_probability_fit.png", dpi=150)
-    print("Saved plot: transduction_probability_fit.png")
+    plt.savefig(output_path, dpi=150)
+    print(f"Saved plot: {output_path}")
 
     if "agg" not in plt.get_backend().lower():
         plt.show()
