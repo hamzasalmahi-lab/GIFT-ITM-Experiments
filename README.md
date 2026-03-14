@@ -79,6 +79,36 @@ Run the symbolic variational derivation linking IFEs to a dynamical \\dot{Phi} c
 python3 derive_mrai_variation.py
 ```
 
+## Stochastic Transduction Simulation
+
+Run the Monte Carlo transducer simulation and sigmoid fit:
+
+```bash
+python3 simulate_transduction_probability.py
+```
+
+The script saves:
+
+```text
+transduction_probability_fit.png
+```
+
+## Hierarchical Metric Induction
+
+Run hierarchical curvature induction and additivity check:
+
+```bash
+python3 hierarchical_metric_induction.py
+```
+
+## Gauge Commutation Test
+
+Run the symbolic gauge commutator test for the GIFT action:
+
+```bash
+python3 gauge_commutation_test.py
+```
+
 ## Changelog (2026-03-14)
 
 - Added `audit_threshold.py` for symbolic threshold derivation from the equilibrium condition.
